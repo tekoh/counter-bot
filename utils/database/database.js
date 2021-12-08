@@ -1,5 +1,4 @@
 const Database = require("better-sqlite3")
-const { info, types, error } = require("../logger")
 const db = new Database("./utils/database/storage.db", { verbose: databaseLog })
 
 function createTables() {
