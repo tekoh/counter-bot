@@ -1,5 +1,5 @@
-const { Message, MessageEmbed, Collection } = require("discord.js")
-const { runCommand } = require("../utils/commandhandler")
+const { Message, MessageEmbed } = require("discord.js")
+//const { runCommand } = require("../utils/commandhandler")
 const { info } = require("../utils/logger")
 
 /**

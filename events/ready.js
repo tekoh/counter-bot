@@ -18,7 +18,7 @@ module.exports = async (client, startUp) => {
         })
     }, 5000)
 
-    const { commandsSize } = require("../utils/commandhandler")
+    //const { commandsSize } = require("../utils/commandhandler")
 
     let memberCount = 0
 
@@ -28,7 +28,7 @@ module.exports = async (client, startUp) => {
 
     info("server count: " + client.guilds.cache.size.toLocaleString(), types.INFO)
     info("user count: " + memberCount.toLocaleString(), types.INFO)
-    info("commands count: " + commandsSize, types.INFO)
+    //info("commands count: " + commandsSize, types.INFO)
 
     info("logged in as " + client.user.tag, types.INFO)
 
