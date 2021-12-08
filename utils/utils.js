@@ -128,3 +128,82 @@ async function getExactMember(message, memberName) {
 }
 
 exports.getExactMember = getExactMember
+
+/**
+ * @returns {String}
+ * @param {Date} date
+ */
+ function formatDate(date) {
+    const options = { year: "numeric", month: "short", day: "numeric" }
+    return new Intl.DateTimeFormat("en-US", options).format(date).toLowerCase().split(",").join("")
+}
+
+exports.formatDate = formatDate
+
+/**
+ * 
+ * @param {String} quote 
+ * @returns {Boolean}
+ */
+function addQuote(quote) {
+    try {
+        db.prepare("INSERT INTO quotes (quote) VALUES (?)").run(quote)
+    } catch {
+        return false
+    }
+
+    return true
+}
+
+exports.addQuote = addQuote
+
+/**
+ * 
+ * @param {String} quote 
+ * @param {String} memberId 
+ */
+function addUse(quote, memberId) {
+    db.prepare("UPDATE quotes SET mentions = mentions + 1 WHERE quote = ?").run(quote)
+    db.prepare("INSERT INTO history (user, quote, date) VALUES (?, ?, ?)").run(memberId, quote, Date.now()).run()
+}
+
+exports.addUse = addUse
+
+/**
+ * 
+ * @param {String} quote 
+ * @returns {Boolean}
+ */
+function quoteExists(quote) {
+    const query = db.prepare("SELECT quote WHERE quote = ?").get(quote)
+
+    if (query) {
+        return true
+    } else {
+        return false
+    }
+}
+
+exports.quoteExists = quoteExists
+
+/**
+ * 
+ * @param {String} quote 
+ */
+function deleteQuote(quote) {
+    db.prepare("DELETE FROM quotes WHERE quote = ?").run(quote)
+}
+
+exports.deleteQuote = deleteQuote
+
+/**
+ * 
+ * @returns {{ quote: String, mentions: Number }}
+ */
+function getQuotes() {
+    const query = db.prepare("SELECT * FROM quotes").all()
+
+    return query
+}
+
+exports.getQuotes = getQuotes

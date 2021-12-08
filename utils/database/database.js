@@ -1,11 +1,11 @@
 const Database = require("better-sqlite3")
-const db = new Database("./utils/database/storage.db", { verbose: databaseLog })
+const db = new Database("./utils/database/storage.db")
 
 function createTables() {
 
-    db.prepare("CREATE TABLE IF NOT EXISTS quotes ('id' TEXT PRIMARY KEY, 'quote' STRING NOT NULL, 'mentions' INTEGER DEFAULT 0 NOT NULL)").run()
+    db.prepare("CREATE TABLE IF NOT EXISTS quotes ('quote' TEXT PRIMARY KEY NOT NULL, 'mentions' INTEGER DEFAULT 0 NOT NULL)").run()
 
-    db.prepare("CREATE TABLE IF NOT EXISTS history ('id' TEXT PRIMARY KEY, 'user' STRING NOT NULL, 'quote' STRING NOT NULL, 'date' INTEGER NOT NULL, FOREIGN KEY (quote) REFERENCES quotes (id)").run()
+    db.prepare("CREATE TABLE IF NOT EXISTS history ('user' STRING NOT NULL, 'quote' STRING NOT NULL, 'date' INTEGER NOT NULL, FOREIGN KEY (quote) REFERENCES quotes (id)").run()
 }
 
 createTables()
