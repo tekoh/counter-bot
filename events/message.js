@@ -1,14 +1,6 @@
-const { Message, MessageEmbed, Collection, Permissions } = require("discord.js")
-const { mentions } = require("../nypsi")
-const { getChatFilter, getPrefix, inCooldown, addCooldown, hasGuild } = require("../utils/guilds/utils")
+const { Message, MessageEmbed, Collection } = require("discord.js")
 const { runCommand } = require("../utils/commandhandler")
 const { info } = require("../utils/logger")
-
-/**
- * @type {Array<{ type: String, members: Collection, message: Message, guild: String }>}
- */
-const mentionQueue = []
-let mentionInterval
 
 /**
  * @param {Message} message
