@@ -207,3 +207,28 @@ function getQuotes() {
 }
 
 exports.getQuotes = getQuotes
+
+/**
+ * 
+ * @param {String} quote 
+ * @returns {Number}
+ */
+function getMentions(quote) {
+    const query = db.prepare("SELECT mentions FROM quotes WHERE quote = ?").get(quote)
+
+    return query
+}
+
+exports.getMentions = getMentions
+
+/**
+ * 
+ * @returns {{ user: String, quote: String, date: Number }}
+ */
+function getHistory() {
+    const query = db.prepare("SELECT * FROM history").all()
+
+    return query
+}
+
+exports.getHistory = getHistory
