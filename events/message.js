@@ -24,7 +24,7 @@ module.exports = async (message) => {
     if (quoteExists(message.content.toLowerCase())) {
         addUse(message.content.toLowerCase(), message.author.id)
 
-        const emojis = ["🤓", "😈", "💦", "🦌", "🎅", "😏", "🚿", "👴", "👶", "🐥"]
+        const emojis = ["🤓", "😈", "💦", "🦌", "🎅", "😏", "🚿", "👴", "👶", "🐥", "🎈", "🧩", "🧸", "🍩", "🍪"]
 
         return await message.react(emojis[Math.floor(Math.random() * emojis.length)])
     }
