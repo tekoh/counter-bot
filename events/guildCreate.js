@@ -7,5 +7,4 @@ const { info, types } = require("../utils/logger")
  */
 module.exports = async (client, guild) => {
     info(`added to ${guild.name} (${guild.id}) new count: ${client.guilds.cache.size}`, types.GUILD)
-    runCheck(guild)
 }
