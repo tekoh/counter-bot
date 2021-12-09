@@ -15,7 +15,7 @@ async function run(message, args) {
         return message.channel.send({ embeds: [new ErrorEmbed("whats the quote dumbass")] })
     }
 
-    const quote = args.join(" ")
+    const quote = args.join(" ").toLowerCase()
 
     if (quoteExists(quote)) return message.channel.send({ embeds: [new ErrorEmbed("that quote already exists")] })
 
