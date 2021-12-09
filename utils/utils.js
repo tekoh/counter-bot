@@ -162,7 +162,7 @@ exports.addQuote = addQuote
  */
 function addUse(quote, memberId) {
     db.prepare("UPDATE quotes SET mentions = mentions + 1 WHERE quote = ?").run(quote)
-    db.prepare("INSERT INTO history (user, quote, date) VALUES (?, ?, ?)").run(memberId, quote, Date.now()).run()
+    db.prepare("INSERT INTO history (user, quote, date) VALUES (?, ?, ?)").run(memberId, quote, Date.now())
 }
 
 exports.addUse = addUse
