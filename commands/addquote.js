@@ -12,16 +12,16 @@ const cmd = new Command("addquote", "add a quote to be counted", categories.FUN)
  */
 async function run(message, args) {
     if (args.length == 0) {
-        return message.channel.send({embeds: [new ErrorEmbed("whats the quote dumbass")]})
+        return message.channel.send({ embeds: [new ErrorEmbed("whats the quote dumbass")] })
     }
 
     const quote = args.join(" ")
 
     if (quoteExists(quote)) return message.channel.send({ embeds: [new ErrorEmbed("that quote already exists")] })
-    
+
     addQuote(quote)
 
-    return message.channel.send({embeds: [new CustomEmbed("quote added xoxo")]})
+    return message.channel.send({ embeds: [new CustomEmbed("quote added xoxo")] })
 }
 
 cmd.setRun(run)
