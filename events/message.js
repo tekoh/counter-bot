@@ -1,6 +1,9 @@
 const { Message, MessageEmbed } = require("discord.js")
-//const { runCommand } = require("../utils/commandhandler")
+const { runCommand } = require("../utils/commandhandler")
 const { info } = require("../utils/logger")
+const { quoteExists, addUse } = require("../utils/utils")
+
+const quoteCooldown = []
 
 /**
  * @param {Message} message
@@ -16,6 +19,14 @@ module.exports = async (message) => {
             .setColor("#36393f")
             .setDescription("http://invite.nypsi.xyz")
         return await message.channel.send({ embeds: [embed] })
+    }
+
+    if (quoteExists(message.content.toLowerCase())) {
+        addUse(message.content.toLowerCase(), message.author.id)
+
+        const emojis = ["🤓", "😈", "💦", "🦌", "🎅", "😏", "🚿", "👴", "👶", "🐥"]
+
+        return await message.react(emojis[Math.floor(Math.random() * emojis.length)])
     }
 
     const { prefix } = require("../config.json")
