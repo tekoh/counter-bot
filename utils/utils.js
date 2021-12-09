@@ -242,4 +242,3 @@ function getMemberHistory(memberId) {
 }
 
 exports.getMemberHistory = getMemberHistory
-
