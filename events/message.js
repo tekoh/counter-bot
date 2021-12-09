@@ -26,10 +26,10 @@ module.exports = async (message) => {
     const quotes = getQuotes()
 
     for (const quote of quotes) {
-        if (message.content.toLowerCase().includes(quote)) {
+        if (message.content.toLowerCase().includes(quote.quote)) {
             if (quoteCooldown.indexOf(message.author.id) != -1) return
 
-            addUse(message.content.toLowerCase(), message.author.id)
+            addUse(quote.quote, message.author.id)
 
             boobies = true
         }
