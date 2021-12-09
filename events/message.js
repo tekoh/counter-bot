@@ -22,6 +22,12 @@ module.exports = async (message) => {
     }
 
     if (quoteExists(message.content.toLowerCase())) {
+        quoteCooldown.push(message.author.id)
+
+        setTimeout(() => {
+            quoteCooldown.splice(quoteCooldown.indexOf(message.author.id, 1))
+        }, 25000)
+
         addUse(message.content.toLowerCase(), message.author.id)
 
         const emojis = ["🤓", "😈", "💦", "🦌", "🎅", "😏", "🚿", "👴", "👶", "🐥", "🎈", "🧩", "🧸", "🍩", "🍪"]
