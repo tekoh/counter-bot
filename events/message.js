@@ -1,7 +1,7 @@
 const { Message, MessageEmbed } = require("discord.js")
 const { runCommand } = require("../utils/commandhandler")
 const { info } = require("../utils/logger")
-const { quoteExists, addUse } = require("../utils/utils")
+const { quoteExists, addUse, getQuotes } = require("../utils/utils")
 
 const quoteCooldown = []
 
@@ -21,14 +21,26 @@ module.exports = async (message) => {
         return await message.channel.send({ embeds: [embed] })
     }
 
-    if (quoteExists(message.content.toLowerCase())) {
+    let boobies = false
+
+    const quotes = getQuotes()
+
+    for (const quote of quotes) {
+        if (message.content.toLowerCase().includes(quote)) {
+            if (quoteCooldown.indexOf(message.author.id) != -1) return
+
+            addUse(message.content.toLowerCase(), message.author.id)
+
+            boobies = true
+        }
+    }
+
+    if (boobies) {
         quoteCooldown.push(message.author.id)
 
         setTimeout(() => {
             quoteCooldown.splice(quoteCooldown.indexOf(message.author.id, 1))
         }, 25000)
-
-        addUse(message.content.toLowerCase(), message.author.id)
 
         const emojis = ["🤓", "😈", "💦", "🦌", "🎅", "😏", "🚿", "👴", "👶", "🐥", "🎈", "🧩", "🧸", "🍩", "🍪"]
 
