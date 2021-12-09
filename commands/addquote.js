@@ -26,4 +26,4 @@ async function run(message, args) {
 
 cmd.setRun(run)
 
-exports = cmd
+module.exports = cmd
