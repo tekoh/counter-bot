@@ -14,7 +14,7 @@ async function run(message, args) {
     const quotes = getQuotes()
 
     if (quotes.length == 0) {
-        return message.channel.send({embeds: [new ErrorEmbed("no quotes available")]})
+        return message.channel.send({ embeds: [new ErrorEmbed("no quotes available")] })
     }
 
     let msg = ""
@@ -23,7 +23,7 @@ async function run(message, args) {
         msg += `**${quote.quote}** \`${quote.mentions.toLocaleString()} uses\`\n`
     }
 
-    return message.channel.send({embeds: [new CustomEmbed(msg)]})
+    return message.channel.send({ embeds: [new CustomEmbed(msg)] })
 }
 
 cmd.setRun(run)
