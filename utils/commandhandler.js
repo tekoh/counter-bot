@@ -366,6 +366,8 @@ async function runCommand(cmd, message, args) {
     if (!commandExists(cmd)) {
         if (aliases.has(cmd)) {
             alias = true
+        } else {
+            return
         }
     }
 
