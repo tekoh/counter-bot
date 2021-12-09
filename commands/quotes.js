@@ -23,7 +23,7 @@ async function run(message, args) {
         msg += `**${quote.quote}** \`${quote.mentions.toLocaleString()} uses\`\n`
     }
 
-    return message.channel.send({ embeds: [new CustomEmbed(msg)] })
+    return message.channel.send({ embeds: [new CustomEmbed().setDescription(msg).setTitle("quotes")] })
 }
 
 cmd.setRun(run)

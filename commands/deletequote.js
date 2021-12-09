@@ -21,7 +21,7 @@ async function run(message, args) {
 
     deleteQuote(quote)
 
-    return message.channel.send({ embeds: [new CustomEmbed("quote deleted xoxo")] })
+    return message.channel.send({ embeds: [new CustomEmbed().setDescription("quote deleted xoxo")] })
 }
 
 cmd.setRun(run)

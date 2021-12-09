@@ -21,7 +21,7 @@ async function run(message, args) {
 
     addQuote(quote)
 
-    return message.channel.send({ embeds: [new CustomEmbed("quote added xoxo")] })
+    return message.channel.send({ embeds: [new CustomEmbed().setDescription("quote added xoxo")] })
 }
 
 cmd.setRun(run)
