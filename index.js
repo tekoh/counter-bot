@@ -2,6 +2,9 @@ const startUp = Date.now()
 
 const Discord = require("discord.js")
 const { info, error, types } = require("./utils/logger")
+const { loadCommands } = require("./utils/commandhandler")
+
+loadCommands()
 
 const client = new Discord.Client({
     allowedMentions: {
