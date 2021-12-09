@@ -1,5 +1,5 @@
 const { Command, categories } = require("../utils/classes/Command")
-const { Message } = require("discord.js")
+const { Message, Permissions } = require("discord.js")
 const { ErrorEmbed, CustomEmbed } = require("../utils/classes/EmbedBuilders")
 const { quoteExists, deleteQuote } = require("../utils/utils")
 
@@ -11,6 +11,7 @@ const cmd = new Command("deletequote", "delete a quote", categories.FUN).setAlia
  * @param {Array<String>} args
  */
 async function run(message, args) {
+    if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) return
     if (args.length == 0) {
         return message.channel.send({ embeds: [new ErrorEmbed("whats the quote dumbass")] })
     }
