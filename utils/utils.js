@@ -173,7 +173,7 @@ exports.addUse = addUse
  * @returns {Boolean}
  */
 function quoteExists(quote) {
-    const query = db.prepare("SELECT quote WHERE quote = ?").get(quote)
+    const query = db.prepare("SELECT quote FROM quotes WHERE quote = ?").get(quote)
 
     if (query) {
         return true
