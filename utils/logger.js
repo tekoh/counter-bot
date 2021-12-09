@@ -30,7 +30,7 @@ function info(string, type) {
     const day = new Date().getDate()
     const month = new Date().getMonth() + 1
 
-    const out = `${color}${day}/${month} ${getTimestamp()} [${type}] ${string} \x1b[0m`
+    const out = `${color}[COUNTER-BOT] ${day}/${month} ${getTimestamp()} [${type}] ${string} \x1b[0m`
     console.log(out)
 }
 
@@ -40,7 +40,7 @@ function error(string) {
     const day = new Date().getDate()
     const month = new Date().getMonth() + 1
 
-    console.error(`\x1B[31m${day}/${month} ${getTimestamp()} [error] ${string}\x1B[0m`)
+    console.error(`\x1B[31m[COUNTER-BOT] ${day}/${month} ${getTimestamp()} [error] ${string}\x1B[0m`)
 }
 
 exports.error = error
