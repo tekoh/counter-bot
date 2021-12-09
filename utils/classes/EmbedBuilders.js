@@ -1,4 +1,4 @@
-const { MessageEmbed, GuildMember } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 const { getColor } = require("../utils")
 
 class CustomEmbed extends MessageEmbed {
