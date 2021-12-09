@@ -7,7 +7,7 @@ function createTables() {
     ).run()
 
     db.prepare(
-        "CREATE TABLE IF NOT EXISTS history ('user' STRING NOT NULL, 'quote' STRING NOT NULL, 'date' INTEGER NOT NULL, FOREIGN KEY (quote) REFERENCES quotes (id)"
+        "CREATE TABLE IF NOT EXISTS history ('user' STRING NOT NULL, 'quote' STRING NOT NULL, 'date' INTEGER NOT NULL, FOREIGN KEY (quote) REFERENCES quotes (id))"
     ).run()
 }
 
