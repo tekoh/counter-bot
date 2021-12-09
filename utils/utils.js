@@ -230,3 +230,16 @@ function getHistory() {
 }
 
 exports.getHistory = getHistory
+
+/**
+ * @param {String} memberId
+ * @returns {Array<{ user: String, quote: String, date: Number }>}
+ */
+function getMemberHistory(memberId) {
+    const query = db.prepare("SELECT * FROM history WHERE user = ?").all(memberId)
+
+    return query
+}
+
+exports.getMemberHistory = getMemberHistory
+
