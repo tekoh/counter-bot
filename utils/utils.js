@@ -196,7 +196,7 @@ exports.deleteQuote = deleteQuote
 
 /**
  *
- * @returns {{ quote: String, mentions: Number }}
+ * @returns {Array<{ quote: String, mentions: Number }>}
  */
 function getQuotes() {
     const query = db.prepare("SELECT * FROM quotes").all()
@@ -221,7 +221,7 @@ exports.getMentions = getMentions
 
 /**
  *
- * @returns {{ user: String, quote: String, date: Number }}
+ * @returns {Array<{ user: String, quote: String, date: Number }>}
  */
 function getHistory() {
     const query = db.prepare("SELECT * FROM history").all()
