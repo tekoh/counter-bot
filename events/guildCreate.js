@@ -1,5 +1,5 @@
-const { Guild, Client } = require("discord.js")
-const { info, types } = require("../utils/logger")
+const { Guild, Client } = require("discord.js");
+const { info, types } = require("../utils/logger");
 
 /**
  * @param {Client} client
